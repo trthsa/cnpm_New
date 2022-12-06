@@ -13,3 +13,5 @@ module.exports = {
   },
   plugins: [],
 }
+git config --global user.email "trthsan@gmail.com"
+git config --global user.name "Your Name"
