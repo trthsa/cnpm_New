@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Carousel from "./components/Carousel";
-import HeadNav from "./components/HeadNav";
-import Introduce from "./components/Introduce";
+import Carousel from "../components/Carousel";
+import HeadNav from "../components/HeadNav";
+import Introduce from "../components/Introduce";
 
 export default function Home() {
   return (
