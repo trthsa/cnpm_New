@@ -1,11 +1,28 @@
-import AltRouteIcon from "@mui/icons-material/AltRoute";
-import InsightsIcon from "@mui/icons-material/Insights";
+import InterestsIcon from "@mui/icons-material/Interests";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
-import DetailsStatistic from "./DetailsStatistic";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SmallStatistic from "./SmallStatistic";
 //render 4 small statistic on server side nextjs
-import InfoIcon from "@mui/icons-material/Info";
+const currencyFormatter = (value: number) => {
+  return value.toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+  });
+};
+
+import { useEffect, useState } from "react";
 function TongQuanBody() {
+  const [statisData, setStatisData] = useState<any>();
+  useEffect(() => {
+    fetch("/api/getStatistic")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setStatisData(data.statistic);
+      });
+  }, []);
+  if (!statisData) return <div>loading...</div>;
   return (
     <div className="min-h-screen">
       <div className="mt-10">
@@ -17,37 +34,43 @@ function TongQuanBody() {
               value={0}
               color="#9ABC32"
             >
-              <span className="text-2xl font-bold">0</span>
+              <span className="text-xl font-bold">
+                {currencyFormatter(statisData.saleTotal)}
+              </span>
             </SmallStatistic>
             <SmallStatistic
-              icon={<LeaderboardIcon />}
+              icon={<ShoppingCartIcon />}
               value={0}
               color="#6FB3E0"
             >
               <>
-                <span className="">Số đơn hàng: 0</span>
-                <span className="">Số hóa đơn: 0</span>
+                <span className="">Số đơn hàng: {statisData.ordersCount}</span>
+                <span className="">Số hóa đơn: {statisData.receiptCount}</span>
               </>
             </SmallStatistic>
             <SmallStatistic
-              icon={<LeaderboardIcon />}
-              title="Tiền bán hàng"
+              icon={<RemoveCircleOutlineIcon />}
+              title="Số đại lý bị từ chối"
               value={0}
               color="#D53F40"
             >
-              <span className="text-2xl font-bold">0</span>
+              <span className="text-2xl font-bold">
+                {statisData.tuchoiCount}
+              </span>
             </SmallStatistic>
             <SmallStatistic
-              icon={<LeaderboardIcon />}
-              title="Tiền bán hàng"
+              icon={<InterestsIcon />}
+              title="Số hàng hàng hóa"
               value={0}
               color="#E8B110"
             >
-              <span className="text-2xl font-bold">0</span>
+              <span className="text-2xl font-bold">
+                {statisData.productsCount}
+              </span>
             </SmallStatistic>
           </div>
           <div className="flex gap-10 flex-wrap">
-            <DetailsStatistic
+            {/* <DetailsStatistic
               color="#3CCBF8"
               icon={<InsightsIcon />}
               title={"Hoạt động"}
@@ -65,8 +88,8 @@ function TongQuanBody() {
                   })
                 }
               </>
-            </DetailsStatistic>
-            <DetailsStatistic
+            </DetailsStatistic> */}
+            {/* <DetailsStatistic
               color="#F6A424"
               icon={<AltRouteIcon />}
               title={"Thông tin khác"}
@@ -84,8 +107,8 @@ function TongQuanBody() {
                   })
                 }
               </>
-            </DetailsStatistic>
-            <DetailsStatistic
+            </DetailsStatistic> */}
+            {/* <DetailsStatistic
               color="#9ABC32"
               icon={<InfoIcon />}
               title={"Thông tin hàng hóa"}
@@ -103,7 +126,7 @@ function TongQuanBody() {
                   })
                 }
               </>
-            </DetailsStatistic>
+            </DetailsStatistic> */}
           </div>
         </div>
       </div>
