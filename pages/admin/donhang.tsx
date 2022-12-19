@@ -14,7 +14,7 @@ export const defaultHeadClass = `border border-slate-300 hover:bg-slate-500 hove
 //     },
 //   };
 // }
-function tongquan({ data }: any) {
+function Tongquan({ data }: any) {
   const [hoaDonList, setHoaDonList] = useState<[]>([]);
   const [temp_hoaDonList, setTemp_HoaDonList] = useState<[]>([]);
   const [focusHD, setFocusHD] = useState<any>();
@@ -108,4 +108,4 @@ function tongquan({ data }: any) {
   );
 }
 
-export default tongquan;
+export default Tongquan;
