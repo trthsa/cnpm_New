@@ -174,7 +174,7 @@ function Dangkydaily() {
                 console.log(ref.current);
                 if (!validate(ref, setErr)) {
                   setErr((e) => !e);
-                  fetch("http://localhost:3000/api/addDangKyDaiLy", {
+                  fetch("/api/addDangKyDaiLy", {
                     method: "POST",
                     headers: {
                       "Content-Type": "application/json",
