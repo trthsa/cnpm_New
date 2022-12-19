@@ -45,10 +45,13 @@ function DonDangKiDaiLy() {
   });
 
   const [DONDK, setDONDK] = useState<any>();
+  const [temp_DONDK, setTemp_DONDK] = useState<any>([]);
+
   const [don, setDon] = useState<any>();
   useEffect(() => {
     fetchDonDKDL().then((res) => {
       setDONDK(res);
+      setTemp_DONDK(res);
     });
   }, []);
   if (!DONDK) {
@@ -82,8 +85,19 @@ function DonDangKiDaiLy() {
               <TextField
                 className="w-full"
                 id="outlined-basic"
-                label="Nhập mã hóa đơn"
+                label="Nhập mã đơn"
                 variant="outlined"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value == "") {
+                    setDONDK(temp_DONDK);
+                  } else {
+                    const newDon = temp_DONDK.filter((item: any) => {
+                      return item.MAND == value;
+                    });
+                    setDONDK(newDon);
+                  }
+                }}
               />
               <table className="my-3 w-full table-auto border-spacing-5 border border-collapse">
                 <thead>
