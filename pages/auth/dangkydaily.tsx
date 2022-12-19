@@ -1,3 +1,4 @@
+import WorkspacesIcon from "@mui/icons-material/Workspaces";
 import {
   Button,
   FormControl,
@@ -31,6 +32,7 @@ import HeadNav from "../../components/HeadNav";
 // }
 
 function Dangkydaily() {
+  const [isSubmit, setIsSubmit] = useState(false);
   const [khuvuc, setKhuVuc] = useState<any>();
   const [listKhuVuc, setListKhuVuc] = useState<any>();
   const [sex, setSex] = useState("");
@@ -171,6 +173,7 @@ function Dangkydaily() {
             </FormControl>
             <Button
               onClick={() => {
+                setIsSubmit(true);
                 console.log(ref.current);
                 if (!validate(ref, setErr)) {
                   setErr((e) => !e);
@@ -196,12 +199,20 @@ function Dangkydaily() {
                   });
                 } else {
                   setErr((e) => !e);
+                  setIsSubmit(false);
                 }
               }}
               className="bg-green-600"
               variant="contained"
             >
-              Đăng ký
+              {isSubmit ? (
+                <>
+                  <WorkspacesIcon className="animate-spin" />
+                  Đang xử lý
+                </>
+              ) : (
+                "Đăng ký"
+              )}
             </Button>
           </div>
         </div>
