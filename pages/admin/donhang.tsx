@@ -45,7 +45,7 @@ function Tongquan({ data }: any) {
               onChange={(e) => {
                 const value: any = e.target.value;
                 const temp: any = temp_hoaDonList.filter((hoadon: any) => {
-                  return hoadon.MAHD.includes(String(value).toUpperCase());
+                  return hoadon.MAHD.includes(value);
                 });
                 console.log(temp);
 
