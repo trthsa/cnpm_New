@@ -1,3 +1,4 @@
+import Image from "next/image";
 function Introduce() {
   return (
     <div className="mx-20 gap-20 flex justify-between items-center mt-52">
@@ -15,7 +16,7 @@ function Introduce() {
         </p>
       </div>
       <div className="flex-1">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60"
           alt="introduce"
         />

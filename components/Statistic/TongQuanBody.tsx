@@ -16,33 +16,35 @@ function TongQuanBody() {
               title="Tiền bán hàng"
               value={0}
               color="#9ABC32"
-              children={<span className="text-2xl font-bold">0</span>}
-            />
+            >
+              <span className="text-2xl font-bold">0</span>
+            </SmallStatistic>
             <SmallStatistic
               icon={<LeaderboardIcon />}
               value={0}
               color="#6FB3E0"
-              children={
-                <>
-                  <span className="">Số đơn hàng: 0</span>
-                  <span className="">Số hóa đơn: 0</span>
-                </>
-              }
-            />
+            >
+              <>
+                <span className="">Số đơn hàng: 0</span>
+                <span className="">Số hóa đơn: 0</span>
+              </>
+            </SmallStatistic>
             <SmallStatistic
               icon={<LeaderboardIcon />}
               title="Tiền bán hàng"
               value={0}
               color="#D53F40"
-              children={<span className="text-2xl font-bold">0</span>}
-            />
+            >
+              <span className="text-2xl font-bold">0</span>
+            </SmallStatistic>
             <SmallStatistic
               icon={<LeaderboardIcon />}
               title="Tiền bán hàng"
               value={0}
               color="#E8B110"
-              children={<span className="text-2xl font-bold">0</span>}
-            />
+            >
+              <span className="text-2xl font-bold">0</span>
+            </SmallStatistic>
           </div>
           <div className="flex gap-10 flex-wrap">
             <DetailsStatistic
@@ -55,7 +57,7 @@ function TongQuanBody() {
                   //render 5 row
                   [...Array(10)].map((_, index) => {
                     return (
-                      <span className="flex justify-between">
+                      <span key={index} className="flex justify-between">
                         <p>Số tiền bán</p>
                         <span>0đ</span>
                       </span>
@@ -74,7 +76,7 @@ function TongQuanBody() {
                   //render 5 row
                   [...Array(10)].map((_, index) => {
                     return (
-                      <span className="flex justify-between">
+                      <span key={index} className="flex justify-between">
                         <p>Số tiền bán</p>
                         <span>0đ</span>
                       </span>
@@ -93,7 +95,7 @@ function TongQuanBody() {
                   //render 5 row
                   [...Array(10)].map((_, index) => {
                     return (
-                      <span className="flex justify-between">
+                      <span key={index} className="flex justify-between">
                         <p>Số tiền bán</p>
                         <span>0đ</span>
                       </span>

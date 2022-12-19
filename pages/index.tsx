@@ -1,6 +1,7 @@
 import Head from "next/head";
 import HeadNav from "../components/HeadNav";
 import Introduce from "../components/Introduce";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         className="bg-[#F6B258] py-10 flex flex-col items-center justify-center gap-10"
         style={{ marginTop: "auto" }}
       >
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=800&h=250&q=60"
           alt="logo"
         />
