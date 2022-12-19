@@ -1,16 +1,16 @@
+import AltRouteIcon from "@mui/icons-material/AltRoute";
 import InsightsIcon from "@mui/icons-material/Insights";
 import LeaderboardIcon from "@mui/icons-material/Leaderboard";
 import DetailsStatistic from "./DetailsStatistic";
 import SmallStatistic from "./SmallStatistic";
-import AltRouteIcon from "@mui/icons-material/AltRoute";
 //render 4 small statistic on server side nextjs
 import InfoIcon from "@mui/icons-material/Info";
 function TongQuanBody() {
   return (
-    <div className="flex-1 min-h-screen">
-      <div className="mx-32 mt-20">
-        <div className="flex flex-col gap-20">
-          <div className="flex gap-10">
+    <div className="min-h-screen">
+      <div className="mt-10">
+        <div className="flex items-start justify-center flex-col gap-20">
+          <div className="flex gap-10 flex-wrap">
             <SmallStatistic
               icon={<LeaderboardIcon />}
               title="Tiền bán hàng"
@@ -44,7 +44,7 @@ function TongQuanBody() {
               children={<span className="text-2xl font-bold">0</span>}
             />
           </div>
-          <div className="flex gap-10">
+          <div className="flex gap-10 flex-wrap">
             <DetailsStatistic
               color="#3CCBF8"
               icon={<InsightsIcon />}

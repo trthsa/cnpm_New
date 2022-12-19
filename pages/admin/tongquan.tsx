@@ -1,16 +1,11 @@
-import HeadNav from "../../components/HeadNav";
-import SideBar from "../../components/SideBar";
 import TongQuanBody from "../../components/Statistic/TongQuanBody";
+import DefaultWrapper from "../../components/UTILS/DefaultWrapper";
 
 function tongquan() {
   return (
-    <div>
-      <HeadNav />
-      <div className="flex">
-        <SideBar />
-        <TongQuanBody />
-      </div>
-    </div>
+    <DefaultWrapper>
+      <TongQuanBody />
+    </DefaultWrapper>
   );
 }
 

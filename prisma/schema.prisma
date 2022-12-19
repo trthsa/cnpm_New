@@ -1,0 +1,119 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model CHUCVU {
+  MACV    String   @id @db.Char(4)
+  TENCV   String?  @db.VarChar(30)
+  LUONGCB Decimal? @db.Decimal(12, 2)
+}
+
+model CTDONHANG {
+  MADH    String? @db.Char(4)
+  MASP    String? @db.Char(4)
+  SOLUONG Int?
+  MAND    Int     @id @default(autoincrement())
+
+  @@index([MADH], map: "MADH_MADH")
+  @@index([MASP], map: "MASP_MASP")
+}
+
+model CTHOADON {
+  NGAY      DateTime? @db.Date
+  SOLUONGDH Int?
+  TTIENDH   Decimal?  @db.Decimal(12, 2)
+  MAHD      String?   @db.Char(4)
+  MADH      String?   @db.Char(4)
+  MAND      Int       @id @default(autoincrement())
+}
+
+model CTPHIEUXUAT {
+  MAPX    String? @db.Char(4)
+  MASP    String? @db.Char(4)
+  SOLUONG Int?
+  DONGIA  Int?
+  MAND    Int     @id @default(autoincrement())
+}
+
+model DAILY {
+  MADL     String   @id @db.Char(4)
+  MAKH     String?  @db.VarChar(30)
+  KHUVUCDL String?  @db.Char(4)
+  CONGNO   Decimal? @db.Decimal(12, 2)
+
+  @@index([KHUVUCDL], map: "KHUVUCDL_MAKV")
+}
+
+model DONDKDAILY {
+  TENDL     String?  @db.VarChar(50)
+  CCCD      String?  @db.Char(100)
+  MAKV      String?  @db.Char(4)
+  DIACHI    String?  @db.VarChar(100)
+  GIOITINH  Boolean? @db.Bit(1)
+  SDT       String?  @db.Char(13)
+  MAND      Int      @id @default(autoincrement())
+  TinhTrang Int?     @default(0)
+}
+
+model DONHANG {
+  MADH        String    @id @db.Char(4)
+  MAKH        String?   @db.Char(4)
+  SoLuongSP   Int?
+  TTien       Decimal?  @db.Decimal(12, 2)
+  NGAYDAT     DateTime? @db.Date
+  TRANGTHAI   Int?
+  TTTHANHTOAN Int?
+
+  @@index([MAKH], map: "MAKH_MADL")
+}
+
+model HOADON {
+  MAHD     String   @id @db.Char(4)
+  TONGTIEN Decimal? @db.Decimal(12, 2)
+}
+
+model KHUVUC {
+  MAKV     String  @id @db.Char(4)
+  Quan     String? @db.VarChar(40)
+  Phuong   String? @db.VarChar(40)
+  Thanhpho String? @db.VarChar(40)
+}
+
+model NHANVIEN {
+  ID     Int     @id @default(autoincrement())
+  TEN    String? @db.VarChar(20)
+  TENTK  String? @db.VarChar(20)
+  MK     String? @db.VarChar(50)
+  EMAIL  String? @db.VarChar(20)
+  VAITRO String? @db.Char(4)
+}
+
+model PHIEUXUAT {
+  MAPX      String    @id @db.Char(4)
+  MAHD      String?   @db.Char(4)
+  MANV      Int?
+  SoLuongSP Int?
+  DONGIA    Decimal?  @db.Decimal(12, 2)
+  NGAY      DateTime? @db.Date
+
+  @@index([MAHD], map: "MAHD_MAHD")
+}
+
+model SANPHAM {
+  MASP    String   @id @db.Char(100)
+  TENSP   String?  @db.VarChar(1000)
+  DONGIA  Decimal? @db.Decimal(12, 2)
+  HINHANH String?  @db.VarChar(1000)
+}
+
+model THUCHI {
+  MATC   String    @id @db.Char(4)
+  LOAITC Int?
+  TENTC  String?   @db.VarChar(100)
+  NGAYTC DateTime? @db.DateTime(0)
+}
